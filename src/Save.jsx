@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'; 
-import './App.css'; 
+import './Save.css'; 
 import { FaCopy, FaEdit, FaTrash } from 'react-icons/fa'; 
   
 class Save extends Component { 
