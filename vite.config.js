@@ -6,4 +6,5 @@ export default defineConfig({
   build: {
     outDir: 'build', // Set the desired output directory name (e.g., 'build')
   },
+  base: "/passwordManager/",
 })
