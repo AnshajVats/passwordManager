@@ -7,12 +7,14 @@ function App() {
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
   const [showSave, setShowSave] = useState(false);
+  const [buttonStatus, setButtonStatus] = useState("Save");
 
   // useref hook
   const passwordRef = useRef(null);
 
   const handleShowSave = () => {
-    setShowSave(true);
+    setShowSave((prev) => !prev);
+    setButtonStatus((prev) => (prev === "Save" ? "Cancel" : "Save"));
   };
 
   const passwordGenerator = useCallback(() => {
@@ -98,9 +100,10 @@ function App() {
       </div>
       <div>
         <button
-          className="outline-none transition-transform transform active:scale-y-75 flex bg-blue-700 text-white dark:md:hover:bg-sky-300"
+          className="outline-none transition-transform transform rounded-lg
+          active:scale-y-75 flex bg-blue-700 text-white dark:md:hover:bg-sky-300"
           onClick={handleShowSave} >
-          <spam>Save</spam>
+          <spam>{buttonStatus}</spam>
         </button>
 
         {showSave && <Save />}
